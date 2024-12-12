@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Tesseract" Version="5.2.0" />
+    <PackageReference Include="Tesseract.Net.SDK" Version="4.6.411" />
   </ItemGroup>
 
 </Project>

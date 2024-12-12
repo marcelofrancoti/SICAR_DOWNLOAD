@@ -45,9 +45,11 @@ namespace DownloadSICAR.Util
         {
             try
             {
-                using var motor = new TesseractEngine(@"C:/Program Files/Tesseract-OCR/tessdata", "eng", EngineMode.Default);
+                // Configuração do Tesseract sem instalação local
+                var tessDataPath = AppDomain.CurrentDomain.BaseDirectory + "tessdata"; // Certifique-se de ter o tessdata no diretório do projeto
+                using var engine = new TesseractEngine(tessDataPath, "eng", EngineMode.Default);
                 using var imagem = Pix.LoadFromFile(caminhoArquivo);
-                using var pagina = motor.Process(imagem);
+                using var pagina = engine.Process(imagem);
                 return pagina.GetText().Trim();
             }
             catch (Exception ex)
@@ -56,7 +58,6 @@ namespace DownloadSICAR.Util
                 throw;
             }
         }
-
         public static async Task BaixarArquivoEstadoAsync(string urlDownload, string caminhoArquivo, HttpClient clienteHttp)
         {
             try
