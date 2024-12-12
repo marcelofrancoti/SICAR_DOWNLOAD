@@ -1,10 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Net.Http;
-using System.Linq;
-using System.Threading.Tasks;
-using Tesseract;
-using DownloadSICAR.Util;
+﻿using DownloadSICAR.Util;
 
 class Programa
 {
@@ -28,13 +22,5 @@ class Programa
             Console.WriteLine($"Erro inesperado: {ex.Message}");
         }
     }
-
- 
-
-
-
-
-
-
 
 }
